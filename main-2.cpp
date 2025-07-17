@@ -108,7 +108,7 @@ int main()
     enqueue("LinkedIn");
     enqueue("X");
     enqueue("GitHub");
-    // enqueue("Pinterest"); // should show that the queue is full
+    // enqueue("YouTube"); // should show that the queue is full
 
     dequeue(); // should remove 'Facebook'"
     dequeue(); // should remove 'Instagram'
