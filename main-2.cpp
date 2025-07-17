@@ -2,7 +2,7 @@
 #define LIMIT 5
 using namespace std;
 
-char queue[LIMIT];
+string queue[LIMIT];
 int front = -1, rear = -1;
 
 /*  isEmpty() - checks if the queue is empty
@@ -24,7 +24,7 @@ bool isFull()
     return rear == LIMIT - 1;
 }
 
-void enqueue(char data)
+void enqueue(string data)
 {
     if (isFull())
     {
@@ -55,19 +55,19 @@ void dequeue()
     else if ((front + 1) > rear)
     {
         cout << "Dequeued: " << queue[front] << endl;
-        queue[front] = NULL;
+        queue[front] = "";
         front = -1; // reset queue
         rear = -1;
     }
     else
     {
         cout << "Dequeued: " << queue[front] << endl;
-        queue[front] = NULL;
+        queue[front] = "";
         front++;
     }
 }
 
-char peek()
+string peek()
 {
     if (isEmpty())
     {
@@ -84,25 +84,44 @@ int size()
     return (rear - front) + 1;
 }
 
+void display()
+{
+    if (isEmpty())
+    {
+        cout << "Queue is empty!" << endl;
+    }
+    else
+    {
+        cout << "Queue elements: ";
+        for (int i = front; i <= rear; i++)
+        {
+            cout << queue[i] << " ";
+        }
+        cout << endl;
+    }
+}
+
 int main()
 {
-    enqueue('A');
-    enqueue('B');
-    enqueue('C');
-    enqueue('D');
-    enqueue('E');
-    // enqueue('F'); // should show that the queue is full
+    enqueue("Facebook");
+    enqueue("Instagram");
+    enqueue("LinkedIn");
+    enqueue("X");
+    enqueue("GitHub");
+    // enqueue("Pinterest"); // should show that the queue is full
 
-    dequeue(); // should remove 'A'
-    dequeue(); // should remove 'B'
-    /*  dequeue(); // should remove 'C'
-        dequeue(); // should remove 'D'
-        dequeue(); // should remove 'E'
+    dequeue(); // should remove 'Facebook'"
+    dequeue(); // should remove 'Instagram'
+    /*  dequeue(); // should remove 'LinkedIn'
+        dequeue(); // should remove 'X'
+        dequeue(); // should remove 'GitHub'
         dequeue(); // should show that the queue is empty */
 
-    cout << "Front element: " << peek() << endl; // should show 'C' after two dequeues
+    cout << "Front element: " << peek() << endl; // should show 'LinkedIn' after two dequeues
 
     cout << "Queue size: " << size() << endl; // should show 3
+
+    display();
 
     return 0;
 }
