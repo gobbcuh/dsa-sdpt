@@ -56,12 +56,30 @@ int size()
 {
     return top + 1;
 }
+void display()
+{
+    if (isEmpty())
+    {
+        cout << "Stack is empty!" << endl;
+    }
+    else
+    {
+        cout << "Stack elements: " << endl;
+        for (int i = top; i >= 0; i--)
+        {
+            cout << stack[i] << endl;
+        }
+        cout << endl;
+    }
+}
 
 int main()
 {
     push('A');
     push('B');
     push('C');
+    push('D');
+    push('E');
     // push('F'); // Attempt to push when stack is full (stack overflow)
 
     pop();
@@ -70,6 +88,10 @@ int main()
     // pop(); // Attempt to pop from an empty stack (stack underflow)
 
     cout << "Top element: " << peek() << endl;
+
+    cout << "Current stack size: " << size() << endl;
+
+    display();
 
     return 0;
 }
