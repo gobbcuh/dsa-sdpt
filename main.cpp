@@ -3,6 +3,7 @@
 using namespace std;
 
 char stack[LIMIT];
+int top = -1;
 
 /*  isEmpty() - checks if the stack is empty
     isFull() - checks if the stack is full
@@ -12,6 +13,63 @@ char stack[LIMIT];
     size() - returns the number of elements in the stack
     display() - displays the elements of the stack  */
 
+bool isEmpty()
+{
+    return top == -1;
+}
+bool isFull()
+{
+    return top == LIMIT - 1;
+}
+void push(char data)
+{
+    if (isFull())
+    {
+        cout << "Stack Overflow!" << endl;
+    }
+    else
+    {
+        top++;
+        stack[top] = data;
+        cout << "Pushed: " << data << endl;
+    }
+}
+
+void pop()
+{
+    if (isEmpty())
+    {
+        cout << "Stack Underflow!" << endl;
+    }
+    else
+    {
+        cout << "Popped: " << stack[top] << endl;
+        stack[top] = NULL;
+        top--;
+    }
+}
+char peek()
+{
+    return stack[top];
+}
+int size()
+{
+    return top + 1;
+}
+
 int main()
 {
+    push('A');
+    push('B');
+    push('C');
+    // push('F'); // Attempt to push when stack is full (stack overflow)
+
+    pop();
+    pop();
+    pop();
+    // pop(); // Attempt to pop from an empty stack (stack underflow)
+
+    cout << "Top element: " << peek() << endl;
+
+    return 0;
 }
