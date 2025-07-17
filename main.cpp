@@ -17,10 +17,12 @@ bool isEmpty()
 {
     return top == -1;
 }
+
 bool isFull()
 {
     return top == LIMIT - 1;
 }
+
 void push(char data)
 {
     if (isFull())
@@ -48,14 +50,21 @@ void pop()
         top--;
     }
 }
+
 char peek()
 {
+    if (isEmpty())
+    {
+        cout << "Stack is empty!" << endl;
+    }
     return stack[top];
 }
+
 int size()
 {
     return top + 1;
 }
+
 void display()
 {
     if (isEmpty())
