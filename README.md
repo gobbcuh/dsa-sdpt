@@ -1,1 +1,1 @@
-DSA Journey with C++ and Java
+DSA Journey with C++
